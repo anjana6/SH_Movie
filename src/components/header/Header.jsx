@@ -9,7 +9,8 @@ const Header = () => {
   const {pathname} = useLocation()
   const headerPath = [
     {name: "Home", path: '/'},
-    {name: 'Movies', path: '/movie'}
+    {name: 'Movies', path: '/movie'},
+    {name: 'TV Serious', path: '/tv-serious'}
   ]
 
   const active = headerPath.findIndex( data => data.path === pathname)

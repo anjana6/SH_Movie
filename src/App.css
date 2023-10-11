@@ -14,7 +14,7 @@ html {
     font-size: 80%;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   html {
     font-size: 60%;
   }
@@ -27,7 +27,7 @@ body {
   background-color: #0f0f0f;
   color: #fff;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   body {
     margin-bottom: 3rem;
   }
