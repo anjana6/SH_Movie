@@ -1,30 +1,13 @@
-import axiosClient from "./api"
-
-
-export const category = {
-    movie: 'movie',
-    tv: 'tv'
-}
-
-export const movieType = {
-    upcomming: 'upcoming',
-    popular: 'popular',
-    top_rated: 'top_rated'
-}
-
-export const tvType = {
-    upcomming: 'upcoming',
-    popular: 'popular',
-    top_rated: 'top_rated'
-}
+import { MOVIE_TYPE, TV_TYPE } from "../constant/movie.constant";
+import axiosClient from "./axiosClient"
 
 export const fetchMovieList = (type, params) => {
-    const url = 'movie/' + movieType[type];
-    return axiosClient.get(url, { params: params })
+    const url = 'movie/' + type;
+    return axiosClient.get(url, params)
 }
 
 export const fetchTvList = (type, params) => {
-    const url = 'tv/' + tvType[type];
+    const url = 'tv/' + type;
     return axiosClient.get(url, params)
 }
 
@@ -34,13 +17,9 @@ const tmdbApi = {
     //     return axiosClient.get(url, params)
     // },
 
-    getTvList: (type, params) => {
-        const url = 'tv/' + tvType[type];
-        return axiosClient.get(url, params)
-    },
 
-    getVideos: (type, params) => {
-        const url = 'tv/' + tvType[type];
-        return axiosClient.get(url, params)
-    }
+    // getVideos: (type, params) => {
+    //     const url = 'tv/' + tvType[type];
+    //     return axiosClient.get(url, params)
+    // }
 }
