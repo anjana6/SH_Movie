@@ -5,22 +5,33 @@ import {Link} from 'react-router-dom'
 import MovieList from '../components/movie_list/MovieList'
 import { category, movieType } from '../services/tmdbApiService'
 import { CATEGORY, MOVIE_TYPE } from '../constant/movie.constant'
+import MovieSection from '../components/movie_section/MovieSection'
 
 const Home = () => {
   return (
     <Fragment>
       <SlideShow/>
-    <div className="container">
-      <div className="section mb-3">
-        <div className="section_header mb-2">
-          <h2>Trending Movies</h2>
-          <Link to="/movie">
-            <Button className="btn-outline small">View more</Button>
-          </Link>
-        </div>
-        <MovieList category={CATEGORY.MOVIE} type={MOVIE_TYPE.POPULAR}/>
-      </div>
-    </div>
+      <MovieSection
+        sectionHeader="Popular Movies"
+        category={CATEGORY.MOVIE}
+        type={MOVIE_TYPE.POPULAR}
+      />
+      <MovieSection
+        sectionHeader="Top Rated Movies"
+        category={CATEGORY.MOVIE}
+        type={MOVIE_TYPE.TOP_RATED}
+      />
+      <MovieSection
+        sectionHeader="Popular TV"
+        category={CATEGORY.TV}
+        type={MOVIE_TYPE.POPULAR}
+      />
+      <MovieSection
+        sectionHeader="Top Rated TV"
+        category={CATEGORY.TV}
+        type={MOVIE_TYPE.TOP_RATED}
+      />
+    
     </Fragment>
     
   )
