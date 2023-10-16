@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../button/Button'
+import Button from '../../common/button/Button'
 import MovieList from '../movie_list/MovieList'
 
 const MovieSection = (props) => {

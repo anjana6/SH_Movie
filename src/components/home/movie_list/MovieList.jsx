@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "./movie_list.scss"
-import * as tmdbApiService from '../../services/tmdbApiService'
+import * as tmdbApiService from '../../../services/tmdbApiService'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay,Navigation,Scrollbar, A11y,Zoom,Pagination,Virtual } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/bundle'
-import { CATEGORY } from '../../constant/movie.constant';
-import apiConfig from '../../config/apiConfig';
-import MovieCard from '../movie_card/MovieCard';
+import { CATEGORY } from '../../../constant/movie.constant';
+import apiConfig from '../../../config/apiConfig';
+import MovieCard from '../../movie_card/MovieCard';
 
 const MovieList = (props) => {
     const [items, setItems] = useState([]);
@@ -44,7 +44,7 @@ const MovieList = (props) => {
             {
                 items.map((item,i) => 
                     <SwiperSlide key={i}>
-                        <MovieCard item={item}/>
+                        <MovieCard item={item} category={category}/>
                     </SwiperSlide>
                 )
             }
