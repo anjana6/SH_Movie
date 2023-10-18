@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import './slideShow.scss'
-import { fetchMovieList, movieType } from '../../services/tmdbApiService'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import apiConfig from '../../config/apiConfig'
-import { Autoplay,Navigation,Scrollbar, A11y,Zoom,Pagination,Virtual } from 'swiper/modules';
+import { Autoplay} from 'swiper/modules';
+import SlideItem from './Includes/SlideItem'
+import * as tmdbApiService from '../../services/tmdbApiService';
+import { MOVIE_TYPE } from '../../constant/movie.constant'
+
+import './slideShow.scss'
 import 'swiper/css';
 import 'swiper/css/bundle'
-import SlideItem from './Includes/SlideItem'
-import { MOVIE_TYPE } from '../../constant/movie.constant'
 
 const SlideShow = () => {
     const [movies, setMovies] = useState([])
@@ -19,7 +19,7 @@ const SlideShow = () => {
     const getMovies = async () => {
         try {
             const params = {page:1}
-            const res =  await fetchMovieList(MOVIE_TYPE.POPULAR, {params})
+            const res =  await tmdbApiService.fetchMovieList(MOVIE_TYPE.UPCOMING, {params})
             setMovies(res.data.results.slice(0,10))
         } catch (error) {
             console.log(error)
@@ -34,8 +34,8 @@ const SlideShow = () => {
           slidesPerView={1}
           autoplay={{delay:5000}} 
         >
-          {movies.map((movie, index) => (
-            <SwiperSlide key={index}>
+          {movies.map((movie) => (
+            <SwiperSlide key={movie.id}>
               <SlideItem item={movie}/>
             </SwiperSlide>
           ))}

@@ -1,7 +1,8 @@
 import React from 'react'
-import './header.scss'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/logo.jpg'
+
+import './header.scss'
 
 
 const Header = () => {
@@ -19,6 +20,7 @@ const Header = () => {
       <div className="header_wrap container">
         <div className="logo">
           <img src={logo} alt="logo" />
+          <span>Movies</span>
           <Link to="/"></Link>
         </div>
         <ul className="header_nav">

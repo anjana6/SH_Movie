@@ -57,7 +57,7 @@
 
     &_info{
         width: 80%;
-        height: 100px;
+        // height: 100px;
         padding-left: 2rem;
         position: relative;
 
@@ -71,8 +71,9 @@
         }
 
         .title{
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: 1;
+            font-weight: bold;
         }
 
         .genres{

@@ -21,15 +21,17 @@ export const fetchMovieDetail = (type, id, params) => {
     return axiosClient.get(url, params)
 }
 
-const tmdbApi = {
-    // getMovieList: (type, params) => {
-    //     const url = 'movie/' + movieType[type];
-    //     return axiosClient.get(url, params)
-    // },
+export const fetchCredits = (type, id) => {
+    const url = type + '/' + id + '/credits'
+    return axiosClient.get(url)
+}
 
+export const fetchSimilerMovie = (type, id) => {
+    const url = type + '/' + id + '/similar'
+    return axiosClient.get(url)
+}
 
-    // getVideos: (type, params) => {
-    //     const url = 'tv/' + tvType[type];
-    //     return axiosClient.get(url, params)
-    // }
+export const fetchMovieVideos = (type, id) => {
+    const url = type + '/' + id + '/videos'
+    return axiosClient.get(url)
 }

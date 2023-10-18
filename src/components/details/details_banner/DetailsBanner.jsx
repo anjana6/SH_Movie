@@ -3,20 +3,10 @@ import './details_banner.scss'
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetail } from '../../../services/tmdbApiService';
 import apiConfig from '../../../config/apiConfig';
+import CastList from '../cast_list/CastList';
 
-const DetailsBanner = () => {
-    const {category, id} = useParams();
-    const [item, setItem] = useState(null);
-  
-    useEffect(() => {
-      getDetail()
-    }, [category,id])
-  
-    const getDetail = async() => {
-      const response = await fetchMovieDetail(category,id,{params:{}});
-      setItem(response.data)
-      window.scrollTo(0,0)
-    }
+const DetailsBanner = (props) => {
+   const {item} = props
   
   return (
     <Fragment>
@@ -24,12 +14,12 @@ const DetailsBanner = () => {
         item && (
         <>
         <div className="banner" style={{backgroundImage: `url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}}></div>
-        <div className="mb-3 movie-content">
+        <div className="mb-3 movie-content container">
             <div className="movie-content_poster">
                 <div className="movie-content_poster_img" style={{backgroundImage: `url(${apiConfig.originalImage(item.poster_path || item.backdrop_path)})`}}></div>
             </div>
             <div className="movie-content_info">
-            <div className="title">
+                <div className="title">
                     {item.title || item.name}
                 </div>
                 <div className="genres">
@@ -42,6 +32,7 @@ const DetailsBanner = () => {
                     <div className="section_header">
                         <h3>Casts</h3>
                     </div>
+                    <CastList id={item.id}/>
                 </div>
             </div>
         </div>

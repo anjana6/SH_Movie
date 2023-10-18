@@ -11,16 +11,17 @@ import MovieCard from '../../movie_card/MovieCard';
 
 const MovieList = (props) => {
     const [items, setItems] = useState([]);
-    const {category,type} = props;
+    const {category,type, movieId} = props;
+    console.log('11111111111', category,type, movieId)
 
     useEffect(() => {
         getList()
-    },[])
+    },[type, movieId])
 
     const getList = async () => {
         let response = null;
         const params = {}
-        if(props.type !== 'similar'){
+        if(type !== 'similar'){
             switch(category){
                 case CATEGORY.MOVIE:  
                     response = await tmdbApiService.fetchMovieList(type, {params}) 
@@ -31,9 +32,14 @@ const MovieList = (props) => {
             }
         }
         else{
-            console.log('smiler')
+            console.log('smiler', movieId)
+            if(movieId){
+                response = await tmdbApiService.fetchSimilerMovie(category,movieId)
+            }
         }
-        setItems(response.data.results)
+
+        console.log('resssssssss',response)
+        setItems(response?.data?.results)
     }
   return (
     <div className="movie-list">
