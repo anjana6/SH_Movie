@@ -13,11 +13,19 @@
     button{
         position: absolute;
         right: 0;
-        top:2px;
+        top: 0;
+        bottom: 0;
+        opacity: 0.6;
 
-        @include mobile{
-            right: 1px;
-            top:1px;
+        // @include mobile{
+        //     right: 1px;
+        //     top:1px;
+        // }
+
+        &:hover{
+            opacity: 1;
         }
     }
+
+    
 }

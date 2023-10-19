@@ -32,7 +32,7 @@ const DetailsBanner = (props) => {
                     <div className="section_header">
                         <h3>Casts</h3>
                     </div>
-                    <CastList id={item.id}/>
+                    {/* <CastList id={item.id}/> */}
                 </div>
             </div>
         </div>

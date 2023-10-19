@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import "./search_bar.scss"
 import InputComponent from '../../common/input/InputComponent'
 import Button from '../../common/button/Button'
+import { useOnKeyPress } from '../../../hooks/useOnKeyPress'
 
 
 const SearchBar = (props) => {
@@ -13,23 +14,24 @@ const SearchBar = (props) => {
   const goToSearch = useCallback(
     () => {
       if(keyword.trim().length > 0)
-      console.log('xxxxxxxxxxxxxxxx', props.category)
       navigate(`/${props.category}/search/${keyword}`, {replace: true})
     }, [keyword,props.category]
   )
 
-  useEffect(()=> {
-    const enterEvent = (e) => {
-      e.preventDefault();
-      if(e.keyCode === 13){
-        goToSearch();
-      }
-    }
-    document.addEventListener('keyup', enterEvent);
-    return () => {
-      document.removeEventListener('keyup', enterEvent)
-    }
-  }, [keyword,goToSearch])
+  useOnKeyPress(goToSearch, 'Enter')
+
+  // useEffect(()=> {
+  //   const enterEvent = (e) => {
+  //     e.preventDefault();
+  //     if(e.keyCode === 13){
+  //       goToSearch();
+  //     }
+  //   }
+  //   document.addEventListener('keyup', enterEvent);
+  //   return () => {
+  //     document.removeEventListener('keyup', enterEvent)
+  //   }
+  // }, [keyword,goToSearch])
 
   return (
     <div className="movie-search">
@@ -39,7 +41,7 @@ const SearchBar = (props) => {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <Button className="small" onClick={goToSearch}>Search</Button>
+      <Button className="btn-default small" onClick={goToSearch}>Search</Button>
     </div>
   )
 }

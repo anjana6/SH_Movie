@@ -10,37 +10,37 @@ import apiConfig from '../../../config/apiConfig';
 import MovieCard from '../../movie_card/MovieCard';
 
 const MovieList = (props) => {
-    const [items, setItems] = useState([]);
-    const {category,type, movieId} = props;
-    console.log('11111111111', category,type, movieId)
+    // const [items, setItems] = useState([]);
+    const {category,items} = props;
+    // console.log('11111111111', category,type, movieId)
 
-    useEffect(() => {
-        getList()
-    },[type, movieId])
+    // useEffect(() => {
+    //     getList()
+    // },[type, movieId])
 
-    const getList = async () => {
-        let response = null;
-        const params = {}
-        if(type !== 'similar'){
-            switch(category){
-                case CATEGORY.MOVIE:  
-                    response = await tmdbApiService.fetchMovieList(type, {params}) 
-                    break
-                default: 
-                    response = await tmdbApiService.fetchTvList(type, {params})
+    // const getList = async () => {
+    //     let response = null;
+    //     const params = {}
+    //     if(type !== 'similar'){
+    //         switch(category){
+    //             case CATEGORY.MOVIE:  
+    //                 response = await tmdbApiService.fetchMovieList(type, {params}) 
+    //                 break
+    //             default: 
+    //                 response = await tmdbApiService.fetchTvList(type, {params})
 
-            }
-        }
-        else{
-            console.log('smiler', movieId)
-            if(movieId){
-                response = await tmdbApiService.fetchSimilerMovie(category,movieId)
-            }
-        }
+    //         }
+    //     }
+    //     else{
+    //         console.log('smiler', movieId)
+    //         if(movieId){
+    //             response = await tmdbApiService.fetchSimilerMovie(category,movieId)
+    //         }
+    //     }
 
-        console.log('resssssssss',response)
-        setItems(response?.data?.results)
-    }
+    //     console.log('resssssssss',response)
+    //     setItems(response?.data?.results)
+    // }
   return (
     <div className="movie-list">
         <Swiper
@@ -48,8 +48,8 @@ const MovieList = (props) => {
             slidesPerView={'auto'}
         >
             {
-                items.map((item,i) => 
-                    <SwiperSlide key={i}>
+                items.map((item) => 
+                    <SwiperSlide key={item.id}>
                         <MovieCard item={item} category={category}/>
                     </SwiperSlide>
                 )

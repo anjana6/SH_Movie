@@ -30,7 +30,7 @@ const Detail = () => {
           <div className="section_header mb-2">
             <h2>Similar</h2>
           </div>
-          <MovieList category={category} type="similar" movieId={id}/>
+          {/* <MovieList category={category} type="similar" movieId={id}/> */}
         </div>
       </div>
     </Fragment>

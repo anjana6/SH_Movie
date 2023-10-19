@@ -1,12 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import './collection_grid.scss'
 import { useParams } from 'react-router-dom'
-import { CATEGORY, MOVIE_TYPE, TV_TYPE } from '../../../constant/movie.constant'
-import * as tmdbApiService from '../../../services/tmdbApiService'
 import MovieCard from '../../movie_card/MovieCard'
 import Button from '../../common/button/Button'
-import InputComponent from '../../common/input/InputComponent'
 import SearchBar from '../search_bar/SearchBar'
+import * as tmdbApiService from '../../../services/tmdbApiService'
+
+import './collection_grid.scss'
 
 const CollectionGrid = (props) => {
     const [items, setItems] = useState([])
@@ -14,32 +13,26 @@ const CollectionGrid = (props) => {
     const [totalPage, setTotalPage] = useState(0)
 
     const {keyword} = useParams()
-    const {category} = props
+    const {category, type} = props
 
     useEffect(() => {
         getList()
-    },[category, keyword])
+    },[category, type, keyword])
 
     const getList = async() => {
-        let response = null;
-
         if(keyword === undefined){
-            const params = {}
-            switch(category){
-                case CATEGORY.MOVIE: 
-                response = await tmdbApiService.fetchMovieList(MOVIE_TYPE.UPCOMING, {params})
-                break;
-                default: 
-                response = await tmdbApiService.fetchTvList(TV_TYPE.POPULAR, {params})
-            }
+           const res = await tmdbApiService.fetchFilterList(category,type)
+           setItems(res.data.results);
+           setTotalPage(res.data.total_pages)
         }else{
             const params = {
                 query: keyword
             }
-            response = await tmdbApiService.search(category, {params})
+            const res = await tmdbApiService.search(category, {params})
+            setItems(res.data.results);
+            setTotalPage(res.data.total_pages)
         }
-        setItems(response.data.results);
-        setTotalPage(response.data.total_pages)
+        
     }
 
     const loadMore = () => {
@@ -47,7 +40,7 @@ const CollectionGrid = (props) => {
     }
   return (
     <Fragment>
-        <div className="section mb-3">
+        <div className="section mb-3 search-bar">
             <SearchBar category={props.category} keyword={keyword}/>
         </div>
     <div className="collection-grid">

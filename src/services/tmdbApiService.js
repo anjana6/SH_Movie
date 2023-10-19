@@ -1,4 +1,4 @@
-import { MOVIE_TYPE, TV_TYPE } from "../constant/movie.constant";
+import { CATEGORY, MOVIE_TYPE, TV_TYPE } from "../constant/movie.constant";
 import axiosClient from "./axiosClient"
 
 export const fetchMovieList = (type, params) => {
@@ -34,4 +34,13 @@ export const fetchSimilerMovie = (type, id) => {
 export const fetchMovieVideos = (type, id) => {
     const url = type + '/' + id + '/videos'
     return axiosClient.get(url)
+}
+
+export const fetchFilterList = (category, type) => {
+    switch (category) {
+        case CATEGORY.MOVIE:
+            return fetchMovieList(type)
+        default:
+            return fetchTvList(type)
+    }
 }

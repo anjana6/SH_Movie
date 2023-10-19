@@ -7,9 +7,9 @@ const PageRoute = () => {
   return (
       <Routes>
          <Route index element={<Home/>} path='/'></Route>
+         <Route element={<CollectionView />} path='/:category/:type'></Route>
          <Route element={<CollectionView/>} path='/:category/search/:keyword'/>
-         <Route element={<Detail/>} path='/:category/:id'></Route>
-         <Route element={<CollectionView />} path='/:category'></Route>
+         <Route element={<Detail/>} path='/detail/:category/:id'></Route>
          
       </Routes>
   )

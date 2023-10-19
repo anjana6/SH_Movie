@@ -19,7 +19,7 @@ const SlideShow = () => {
     const getMovies = async () => {
         try {
             const params = {page:1}
-            const res =  await tmdbApiService.fetchMovieList(MOVIE_TYPE.UPCOMING, {params})
+            const res =  await tmdbApiService.fetchMovieList(MOVIE_TYPE.POPULAR, {params})
             setMovies(res.data.results.slice(0,10))
         } catch (error) {
             console.log(error)

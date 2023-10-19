@@ -1,7 +1,18 @@
 @use '../../../scss/' as *;
 
 .page-header{
+    @include flex(center,center);
     padding: $header-height 0 2rem;
     text-align: center;
     margin-bottom: 2rem;
+    font-family: $header-font-family;
+    font-size: 1rem;
+
+    span{
+        width: 20%;
+        height: 2px;
+        background-color: $main-color;
+        margin: 0 2rem;
+    }
+
 }

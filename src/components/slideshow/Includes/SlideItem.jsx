@@ -12,7 +12,7 @@ const SlideItem = (props) => {
     >
       <div className="slide_item_content container">
         <div className="slide_item_content_info">
-          <h3 className="title">{item.title}</h3>
+          <h1 className="title">{item.title}</h1>
           <div className="overview">{item.overview}</div>
         </div>
         <div className="slide_item_content_poster">

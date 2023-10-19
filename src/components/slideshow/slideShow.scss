@@ -1,12 +1,12 @@
 @use "../../scss/" as *;
 
 .slide_container{
- margin-bottom: 3rem;   
+ margin-bottom: 1rem;   
 }
 
 .slide_item{
     width: 100%;
-    padding: 9rem 0;
+    padding: 5.5rem 0;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -55,12 +55,6 @@
                 font-weight: 700;
             }
 
-            // .title, .overview{
-            //     opacity: 0;
-            //     transform: translateY(-100px);
-            //     transition: transform .5s ease, opacity .5s ease;
-            // }
-
 
         }
 
@@ -68,10 +62,11 @@
             flex: 1;
             @include flex(center, center);
             position: relative;
+            z-index: 1;
 
             img{
                 width: 200px;
-                height: 300px;
+                height: 280px;
                 border-radius: $border-radius;
                 box-shadow: $box-shadow;
 

@@ -1,0 +1,7 @@
+@use "../../../scss/" as * ;
+
+.section_header{
+    font-family: $header-font-family;
+    border-left: 10px solid $main-color;
+    padding: 0 5px;
+}
