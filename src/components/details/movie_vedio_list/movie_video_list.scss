@@ -1,12 +1,18 @@
 @use '../../../scss/'as *;
 
-.video{
-    // @include flex(center,center);
+.videos{
+    width: 100%;
+    @include flex(center,center);
+    flex-direction: column;
 
-    // &_container{
-    //     width: 100%;
-    // }
+    .video{
+        width: 80%;
+    }
     iframe{
         height: 400px;
+
+        @include mobile{
+            height: 200px;
+        }
     }
 }

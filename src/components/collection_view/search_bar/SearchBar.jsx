@@ -1,41 +1,27 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
-import "./search_bar.scss"
+import { useNavigate } from 'react-router-dom'
 import InputComponent from '../../common/input/InputComponent'
 import Button from '../../common/button/Button'
 import { useOnKeyPress } from '../../../hooks/useOnKeyPress'
 
+import "./search_bar.scss"
 
 const SearchBar = (props) => {
   const navigate = useNavigate()
-  const [keyword, setKeyword] = useState(props.keyword? props.keyword: '')
-  
+  const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '')
 
   const goToSearch = useCallback(
     () => {
-      if(keyword.trim().length > 0)
-      navigate(`/${props.category}/search/${keyword}`, {replace: true})
-    }, [keyword,props.category]
+      if (keyword.trim().length > 0)
+        navigate(`/${props.category}/search/${keyword}`, { replace: true })
+    }, [keyword, props.category]
   )
 
   useOnKeyPress(goToSearch, 'Enter')
 
-  // useEffect(()=> {
-  //   const enterEvent = (e) => {
-  //     e.preventDefault();
-  //     if(e.keyCode === 13){
-  //       goToSearch();
-  //     }
-  //   }
-  //   document.addEventListener('keyup', enterEvent);
-  //   return () => {
-  //     document.removeEventListener('keyup', enterEvent)
-  //   }
-  // }, [keyword,goToSearch])
-
   return (
     <div className="movie-search">
-      <InputComponent 
+      <InputComponent
         type="text"
         placeholder="Ënter Keyword"
         value={keyword}

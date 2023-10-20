@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         <ul className="header_nav">
           {
-            headerPath.map((e, i) => (<li className={`${i === active? 'active': ''}`}><Link to={e.path}>{e.name}</Link></li>))
+            headerPath.map((e, i) => (<li key={i} className={`${i === active? 'active': ''}`}><Link to={e.path}>{e.name}</Link></li>))
           }
         </ul>
       </div>

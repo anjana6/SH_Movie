@@ -6,7 +6,7 @@ import MovieSection from '../components/home/movie_section/MovieSection'
 const Home = () => {
   return (
     <Fragment>
-      <SlideShow/>
+      <SlideShow />
       <MovieSection
         sectionHeader="Popular Movies"
         category={CATEGORY.MOVIE}
@@ -27,9 +27,8 @@ const Home = () => {
         category={CATEGORY.TV}
         type={MOVIE_TYPE.TOP_RATED}
       />
-    
     </Fragment>
-    
+
   )
 }
 
