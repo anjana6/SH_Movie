@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
-import "./collection_header.scss"
 import { CATEGORY } from '../../../constant/movie.constant'
+
+import "./collection_header.scss"
 
 const CollectionHeader = (props) => {
   return (

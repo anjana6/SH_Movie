@@ -5,6 +5,8 @@ import apiConfig from '../config/apiConfig';
 import DetailsBanner from '../components/details/details_banner/DetailsBanner';
 import MovieVideoList from '../components/details/movie_vedio_list/MovieVideoList';
 import MovieList from '../components/home/movie_list/MovieList';
+import CastList from '../components/details/cast_list/CastList';
+import MovieImageList from '../components/details/movie_image_list/MovieImageList';
 
 const Detail = () => {
   const {category, id} = useParams();
@@ -23,6 +25,15 @@ const Detail = () => {
     <Fragment>
       <DetailsBanner item={item}/>
       <div className="container">
+        <div className="section mb-3">
+          <div className="section_header mb-2">
+              <h3>Casts</h3>
+            </div>
+          <CastList id={item?.id}/>
+        </div>
+        <div className="section mb-3">
+          <MovieImageList/>
+        </div>
         <div className="section mb-3">
           <MovieVideoList id={item?.id} />
         </div>

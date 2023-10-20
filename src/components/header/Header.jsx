@@ -10,11 +10,11 @@ const Header = () => {
   const {pathname} = useLocation()
   const headerPath = [
     {name: "Home", path: '/'},
-    {name: 'Movies', path: '/movie'},
-    {name: 'TV Serious', path: '/tv-serious'}
+    {name: 'Movies', path: '/movie/popular'},
+    {name: 'TV Serious', path: '/tv-serious/popular'}
   ]
 
-  const active = headerPath.findIndex( data => data.path === pathname)
+  const active = headerPath.findIndex( data => data.path.split('/')[1] === pathname.split('/')[1])
   return (
     <div className="header">
       <div className="header_wrap container">

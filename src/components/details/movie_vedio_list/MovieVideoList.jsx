@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import './movie_video_list.scss'
 import { useParams } from 'react-router-dom';
 import { fetchMovieVideos } from '../../../services/tmdbApiService';
-import apiConfig from '../../../config/apiConfig';
+
+import './movie_video_list.scss'
 
 const MovieVideoList = (props) => {
   const {id} = props
@@ -31,8 +31,9 @@ const MovieVideoList = (props) => {
 
   return (
     <Fragment>
+      <div className='vedios'>
       {
-        videos.map((item,i) => (
+        videos.slice(0,2).map((item,i) => (
           <div className="video">
             <div className="video_title">
               <h2>{item.name}</h2>
@@ -46,6 +47,7 @@ const MovieVideoList = (props) => {
           </div>
         ))
       }
+      </div>
     </Fragment>
   )
 }

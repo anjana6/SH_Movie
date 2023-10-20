@@ -22,8 +22,6 @@ const MovieSection = (props) => {
       console.log(error)
     }
   }
-
-  console.log('xxxxxxxxxxxxxx', items)
   return (
     <div className="container">
       <div className="section mb-3">

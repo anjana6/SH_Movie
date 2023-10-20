@@ -5,16 +5,17 @@ import apiConfig from '../../../config/apiConfig';
 import './cast_list.scss'
 
 const CastList = (props) => {
-    const {category} =  useParams();
+    const {category,id} =  useParams();
+    // const {id} = props;
 
     const [casts,setCasts] = useState([]);
 
     useEffect(() => {
         getCredits()
-    },[category,props.id])
+    },[category,id])
 
     const getCredits = async () => {
-        const res = await fetchCredits(category,props.id)
+        const res = await fetchCredits(category,id)
         setCasts(res.data.cast)
     }
 
@@ -22,10 +23,18 @@ const CastList = (props) => {
   return (
     <div className="casts">
         {
-            casts.slice(0,9).map((item, i) => (
+            casts.slice(0,6).map((item, i) => (
                 <div className="casts_item" key={i}>
-                    <div className="casts_item_img" style={{backgroundImage: `url(${apiConfig.w500Image(item.profile_path)})`}}></div>
-                        <p className="casts_item_name">{item.name}</p>
+                    {/* <div className="casts_item_img" style={{backgroundImage: `url(${apiConfig.w500Image(item.profile_path)})`}}></div> */}
+                    <img className="casts_item_img" src={`${apiConfig.w500Image(item.profile_path)}`} alt="" />
+                    <div className="casts_item_info">
+                        <div>
+                            <h4 className="casts_item_name">{item.name}</h4>
+                            <h5>{item.character}</h5>
+                        </div>
+                            
+                    </div>
+                        
                 </div>
             ))
         }

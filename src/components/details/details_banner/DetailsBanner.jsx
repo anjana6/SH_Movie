@@ -4,9 +4,12 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieDetail } from '../../../services/tmdbApiService';
 import apiConfig from '../../../config/apiConfig';
 import CastList from '../cast_list/CastList';
+import moment from 'moment';
 
 const DetailsBanner = (props) => {
    const {item} = props
+
+   console.log('iiiiiiiiiiiiiiiii',item)
   
   return (
     <Fragment>
@@ -21,6 +24,7 @@ const DetailsBanner = (props) => {
             <div className="movie-content_info">
                 <div className="title">
                     {item.title || item.name}
+                    <h5>{moment(item.release_date).format('ll')}</h5>
                 </div>
                 <div className="genres">
                     {
@@ -28,11 +32,8 @@ const DetailsBanner = (props) => {
                     }
                 </div>
                 <p className="overview">{item.overview}</p>
-                <div className="cast">
-                    <div className="section_header">
-                        <h3>Casts</h3>
-                    </div>
-                    {/* <CastList id={item.id}/> */}
+                <div className="vote">
+                        <h2>{item.vote_average.toFixed(1)}</h2>  
                 </div>
             </div>
         </div>

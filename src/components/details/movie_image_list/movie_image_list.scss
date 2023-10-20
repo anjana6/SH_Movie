@@ -1,0 +1,11 @@
+@use "../../../scss/" as *;
+
+.images{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+
+    @include mobile{
+        display: none;
+    }
+}

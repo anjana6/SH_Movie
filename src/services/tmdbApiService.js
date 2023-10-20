@@ -36,6 +36,11 @@ export const fetchMovieVideos = (type, id) => {
     return axiosClient.get(url)
 }
 
+export const fetchMovieImages = (type, id) => {
+    const url = type + '/' + id + '/images'
+    return axiosClient.get(url)
+}
+
 export const fetchFilterList = (category, type) => {
     switch (category) {
         case CATEGORY.MOVIE:
