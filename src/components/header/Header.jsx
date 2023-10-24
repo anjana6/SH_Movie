@@ -11,7 +11,7 @@ const Header = () => {
   const headerPath = [
     {name: "Home", path: '/'},
     {name: 'Movies', path: '/movie/popular'},
-    {name: 'TV Serious', path: '/tv-serious/popular'}
+    {name: 'TV Serious', path: '/tv/popular'}
   ]
 
   const active = headerPath.findIndex( data => data.path.split('/')[1] === pathname.split('/')[1])

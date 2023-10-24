@@ -36,6 +36,14 @@ button {
     transition:  border-color .10s ease
 }
 
+.btn-default:hover{
+    box-shadow: unset;
+    color: $main-color;
+    background-color: $black;
+    border-color: $main-color;
+    transition:  border-color .10s ease
+}
+
 .btn.small {
     border-width: 2px;
     padding: .25rem 1.5rem;

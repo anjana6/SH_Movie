@@ -12,7 +12,7 @@ const MovieCard = (props) => {
   return (
     <Link to={`/${category}/detail/${item.id}`}>
         <div className="movie-card" style={{backgroundImage: `url(${background})`}}>
-            <h5 className='site-name'>SH Movie</h5>
+            <h5 className='site-name'>SH Movie<span>.lk</span></h5>
         </div>
         <h4>{item.title || item.name}</h4>
         <h6>{moment(item.release_date).format('ll')}</h6>

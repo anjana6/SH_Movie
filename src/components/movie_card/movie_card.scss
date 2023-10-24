@@ -15,6 +15,12 @@
         left: 50%;
         transform:  scale(0);
         transition: transform .3s ease, box-shadow .3s ease;
+        font-family: $header-font-family;
+
+        span{
+            font-family: 'Kaushan Script', cursive;
+            color: $main-color;
+        }
     }
 
     &::before{

@@ -1,0 +1,18 @@
+.videos {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.videos .video {
+  width: 80%;
+}
+.videos iframe {
+  height: 400px;
+}
+@media screen and (max-width: 480px) {
+  .videos iframe {
+    height: 200px;
+  }
+}/*# sourceMappingURL=movie_video_list.css.map */

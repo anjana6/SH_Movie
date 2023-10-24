@@ -19,7 +19,7 @@
 }
 .modal__content {
   padding: 2rem;
-  background-color: #0f0f0f;
+  background-color: #0a1725;
   width: 50%;
   opacity: 0;
   transform: translateY(-250px);
@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 .modal__content__close:hover {
-  color: #ff0000;
+  color: #08FCC8;
 }
 .modal.active .modal__content {
   opacity: 1;

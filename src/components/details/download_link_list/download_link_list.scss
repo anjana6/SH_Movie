@@ -1,0 +1,13 @@
+@use "../../../scss/" as *;
+
+.title{
+    font-family: $header-font-family;
+}
+
+.movie_download{
+    @include flex(center,center);
+    text-align: center;
+    &_section{
+       padding: 1rem
+    }
+}
