@@ -33,6 +33,14 @@ button {
   transition: border-color 0.1s ease;
 }
 
+.btn-default:hover {
+  box-shadow: unset;
+  color: #08FCC8;
+  background-color: #0f0f0f;
+  border-color: #08FCC8;
+  transition: border-color 0.1s ease;
+}
+
 .btn.small {
   border-width: 2px;
   padding: 0.25rem 1.5rem;

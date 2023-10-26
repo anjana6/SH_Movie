@@ -68,6 +68,10 @@ iframe {
   margin-bottom: 2rem;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
 .section {
   padding: 0 2rem;
 }
@@ -76,4 +80,7 @@ iframe {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  padding: 0 5px;
+  border-left: 10px solid #08FCC8;
 }/*# sourceMappingURL=app.css.map */

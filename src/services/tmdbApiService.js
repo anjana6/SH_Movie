@@ -41,11 +41,11 @@ export const fetchMovieImages = (type, id) => {
     return axiosClient.get(url)
 }
 
-export const fetchFilterList = (category, type) => {
+export const fetchFilterList = (category, type, params) => {
     switch (category) {
         case CATEGORY.MOVIE:
-            return fetchMovieList(type)
+            return fetchMovieList(type, params)
         default:
-            return fetchTvList(type)
+            return fetchTvList(type, params)
     }
 }
