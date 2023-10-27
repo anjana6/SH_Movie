@@ -1,4 +1,4 @@
-import { CATEGORY, MOVIE_TYPE, TV_TYPE } from "../constant/movie.constant";
+import { CATEGORY } from "../constant/movie.constant";
 import axiosClient from "./axiosClient"
 
 export const fetchMovieList = (type, params) => {

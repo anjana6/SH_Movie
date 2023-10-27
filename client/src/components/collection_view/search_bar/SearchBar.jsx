@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import InputComponent from '../../common/input/InputComponent'
 import Button from '../../common/button/Button'
