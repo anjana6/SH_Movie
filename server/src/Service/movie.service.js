@@ -9,7 +9,13 @@ const movieDownloadlink = async (name, year) => {
 
     console.log('uuuuuuuuuuuu', url)
     // const url = "https://piratelk.com/saw-x-2023-sinhala-subtitles/";
-    const response = await axios.get(url);
+    const config = {
+        headers: {
+          'Accept-Encoding': 'gzip, deflate, br'
+        }
+      };
+
+    const response = await axios.get(url,config);
 
 console.log('aaaaaaaaaaaaaaaaa', response)
     const html = response.data;
