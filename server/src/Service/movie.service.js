@@ -20,6 +20,9 @@ const movieDownloadlink = async (name, year) => {
     $(".su-button").each((_idx, el) => links.push($(el).attr('href')));
     $(".su-button").each((_idx, el) => descriptions.push($(el).text()));
 
+    console.log('lllllllllllllllllll', links)
+    console.log('dddddddddddddd',descriptions)
+
     links.map((link, index) => {
         const splitLink = link.split('/')
         const splitDes = descriptions[index].split(' ')
