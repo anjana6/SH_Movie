@@ -8,7 +8,7 @@ const fetchMovieDownloadLink = async (req, res) => {
         res.status(200).json(links)
     } catch (error) {
         console.log('eeeeeeeeeeee', error)
-        res.status(400).json("Links not found")
+        res.status(400).json(error)
     }
 
 }
@@ -17,7 +17,7 @@ const test = async (req, res) => {
     try {
         res.status(200).json("test")
     } catch (error) {
-        res.status(400).json("Links not found")
+        res.status(400).json(error)
     }
 
 }
