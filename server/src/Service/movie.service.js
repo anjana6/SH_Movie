@@ -49,31 +49,32 @@ const axios = require("axios");
 const movieDownloadlink = async (name, year) => {
     // console.log(name, year)
     const movieName = name.toLowerCase().replace(/[^A-Z0-9]+/ig, "-");
-    const url = `https://piratelk.com/${movieName}-${year}-sinhala-subtitles/`
+    // const url = `https://piratelk.com/${movieName}-${year}-sinhala-subtitles/`
+    const url = 'https://blog.logrocket.com'
 
     const res = await superagent.get(url)
     const $ = cheerio.load(res.text);
     // Replace the following selectors with the actual HTML elements you want to scrape
-    const movieLinks = []
-    const links = $(".su-button")
-        .map((i, el) => $(el).attr('href'))
-        .get();
-    const descriptions = $(".su-button")
+    // const movieLinks = []
+    // const links = $(".su-button")
+    //     .map((i, el) => $(el).attr('href'))
+    //     .get();
+    const descriptions = $(".card-title a")
         .map((i, el) => $(el).text())
         .get();
-    links.map((link, index) => {
-        const splitLink = link.split('/')
-        const splitDes = descriptions[index].split(' ')
-        if (splitLink[2] === 'usersdrive.com') {
-            const data = {
-                link: link,
-                details: `${splitDes[2]} | ${splitDes[3]} | ${splitDes[1]}`
-            }
-            movieLinks.push(data)
-        }
-    })
+    // links.map((link, index) => {
+    //     const splitLink = link.split('/')
+    //     const splitDes = descriptions[index].split(' ')
+    //     if (splitLink[2] === 'usersdrive.com') {
+    //         const data = {
+    //             link: link,
+    //             details: `${splitDes[2]} | ${splitDes[3]} | ${splitDes[1]}`
+    //         }
+    //         movieLinks.push(data)
+    //     }
+    // })
 
-    return movieLinks;
+    return descriptions;
 
     //     const html = response.data;
     //     const $ = cheerio.load(html);
