@@ -50,18 +50,23 @@ const movieDownloadlink = async (name, year) => {
     // console.log(name, year)
     const movieName = name.toLowerCase().replace(/[^A-Z0-9]+/ig, "-");
     // const url = `https://piratelk.com/${movieName}-${year}-sinhala-subtitles/`
-    const url = 'https://blog.logrocket.com'
+    const url = 'https://baiscopedownloads.co/meg-2-the-trench-2023/'
 
     const res = await superagent.get(url)
     const $ = cheerio.load(res.text);
     // Replace the following selectors with the actual HTML elements you want to scrape
     // const movieLinks = []
-    // const links = $(".su-button")
-    //     .map((i, el) => $(el).attr('href'))
-    //     .get();
-    const descriptions = $(".card-title a")
-        .map((i, el) => $(el).text())
+    const links = $("p a")
+        .map((i, el) => $(el).attr('href'))
         .get();
+
+    console.log('llllllllllllllllll', links)
+    // const descriptions = $("strong span")
+    //     .map((i, el) => $(el).text())
+    //     .get();
+
+    // console.log('aaaaaaaaaaaaaaaaaaa', descriptions)
+
     // links.map((link, index) => {
     //     const splitLink = link.split('/')
     //     const splitDes = descriptions[index].split(' ')
@@ -74,7 +79,7 @@ const movieDownloadlink = async (name, year) => {
     //     }
     // })
 
-    return descriptions;
+    return links;
 
     //     const html = response.data;
     //     const $ = cheerio.load(html);
