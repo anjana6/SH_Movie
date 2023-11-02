@@ -27,16 +27,12 @@
             grid-gap: 10px;
 
             @include mobile{
-                // display: grid;
                 grid-template-columns: auto auto;
-                // grid-gap: 10px;
             }
         }
 
         &_title{
-            border: 5px solid $main-color;
-            // border-radius: $border-radius;
-            padding: 10px 0;
+            padding: 10px;
             margin-bottom: 50px;
         }
 
