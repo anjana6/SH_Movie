@@ -22,11 +22,11 @@ const DetailsBanner = (props) => {
                                     <div className="title">
                                         {item.title || item.name}
                                     </div>
-                                    <h4>{moment(item.release_date).format('ll')}</h4>
+                                    <h4>{moment(item.release_date || item.last_air_date).format('ll')}</h4>
                                 </div>
                                 <div className="genres">
                                     {
-                                        item.genres && item.genres.slice(0,6).map((genre) => <span className='genres_item' key={genre.id}>{genre.name}</span>)
+                                        item.genres && item.genres.slice(0, 6).map((genre) => <span className='genres_item' key={genre.id}>{genre.name}</span>)
                                     }
                                 </div>
                                 <p className="overview">{item.overview}</p>
