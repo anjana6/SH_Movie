@@ -32,7 +32,8 @@ const CollectionGrid = (props) => {
                 setTotalPage(res.data.total_pages)
             } else {
                 const params = {
-                    query: keyword
+                    query: keyword,
+                    page:currentPage
                 }
                 const res = await tmdbApiService.search(category, { params })
                 setItems(res.data.results);

@@ -4,8 +4,6 @@ import Button from '../../common/button/Button'
 import MovieList from '../movie_list/MovieList'
 import { fetchFilterList } from '../../../services/tmdbApiService'
 
-import "./movie_section.scss";
-
 
 const MovieSection = (props) => {
   const { category, type } = props

@@ -7,8 +7,6 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    // height: 100px;
-
     &::before{
         content: "";
         position: absolute;
@@ -57,7 +55,6 @@
 
     &_info{
         width: 80%;
-        // height: 100px;
         padding-left: 2rem;
         position: relative;
 
