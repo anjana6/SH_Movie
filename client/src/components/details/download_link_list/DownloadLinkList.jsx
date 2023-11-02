@@ -27,23 +27,45 @@ const DownloadLinkList = (props) => {
     <Fragment>
         <div className="movie_download">
             <div className="movie_download_section">
-                <h2 className='title mb-1'>Direct Download Link</h2>
-                {
-                    links.map((link,index) => {
+                <h2 className='title mb-3'>Direct Download Link</h2>
+                <div className='movie_download_link'>
+                    <div className='link-section'>
+                        <h3 className='link-section_title'>Usersdrive</h3>
+                        <div className="link-section_movie-link">
+                        {
+                    links?.usersdriveLink?.slice(0,9).map((link,index) => {
                         return(
                             <div className='mb-2' key={index}>
-                                <div className="mb-1">
-                                    <h4>{link.details}</h4>
-                                </div>
                                 <div className="movie_download_link">
-                                    <a href={link.link} target="_blank" rel="noopener noreferrer">
+                                    <a href={link} target="_blank" rel="noopener noreferrer">
                                         <Button className="btn-default small">Download</Button>
                                     </a>
                                 </div>
                             </div>
                         )
                     })
-                }
+                    }
+                        </div>
+                    </div>
+                    <div className='link-section'>
+                    <h3 className='link-section_title'>DROPAPK</h3>
+                    <div className="link-section_movie-link">
+                    {
+                    links?.dropLink?.slice(0,9).map((link,index) => {
+                        return(
+                            <div className='mb-2' key={index}>
+                                <div className="movie_download_link">
+                                    <a href={link} target="_blank" rel="noopener noreferrer">
+                                        <Button className="btn-default small">Download</Button>
+                                    </a>
+                                </div>
+                            </div>
+                        )
+                    })
+                    }
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </Fragment>

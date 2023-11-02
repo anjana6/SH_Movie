@@ -8,6 +8,39 @@
     @include flex(center,center);
     text-align: center;
     &_section{
-       padding: 1rem
+       padding: 1rem;
+       width: 100%;
     }
+
+    &_link{
+        @include flex(center, space-around);
+
+        @include tablet{
+            flex-direction: column;
+        }
+    }
+
+    .link-section{
+        &_movie-link{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+
+            @include mobile{
+                // display: grid;
+                grid-template-columns: auto auto;
+                // grid-gap: 10px;
+            }
+        }
+
+        &_title{
+            border: 5px solid $main-color;
+            // border-radius: $border-radius;
+            padding: 10px 0;
+            margin-bottom: 50px;
+        }
+
+    }
+
+
 }
