@@ -13,7 +13,7 @@ const SearchBar = (props) => {
   const goToSearch = useCallback(
     () => {
       if (keyword.trim().length > 0)
-        navigate(`/${props.category}/search/${keyword}`, { replace: true })
+        navigate(`/${props.category}/search/${keyword}/1`, { replace: true })
     }, [keyword, props.category]
   )
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchCredits } from '../../../services/tmdbApiService';
 import apiConfig from '../../../config/apiConfig';
+import male from '../../../assets/male.jfif'
+import female from '../../../assets/female.jfif'
 
 import './cast_list.scss'
 
@@ -28,7 +30,7 @@ const CastList = () => {
             {
                 casts.slice(0, 6).map((item) => (
                     <div className="casts_item" key={item.id}>
-                        <img className="casts_item_img" src={`${apiConfig.w500Image(item.profile_path)}`} alt="" />
+                        <img className="casts_item_img" src={item.profile_path? `${apiConfig.w500Image(item.profile_path)}`: item.gender ==1? female: male} alt="" />
                         <div className="casts_item_info">
                             <div>
                                 <h4 className="casts_item_name">{item.name}</h4>

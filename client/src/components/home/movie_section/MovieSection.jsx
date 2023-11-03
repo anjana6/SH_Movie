@@ -26,7 +26,7 @@ const MovieSection = (props) => {
       <div className="section mb-3">
         <div className="section_header mb-2">
           <h2>{props.sectionHeader}</h2>
-          <Link to={`/${category}/${type}`}>
+          <Link to={`/${category}/${type}/1`}>
             <Button className="btn-outline small">View more</Button>
           </Link>
         </div>

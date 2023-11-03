@@ -25,8 +25,8 @@ const MovieImageList = () => {
     return (
         <div className="images">
             {
-                images.slice(4, 8).map((item) => (
-                    <div className="images_item" key={item.id}>
+                images.slice(4, 8).map((item , index) => (
+                    <div className="images_item" key={index}>
                         <img className="images_item_img" src={`${apiConfig.originalImage(item.file_path)}`} alt="" />
                     </div>
                 ))

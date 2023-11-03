@@ -7,8 +7,8 @@ const PageRoute = () => {
   return (
       <Routes>
          <Route index element={<Home/>} path='/'></Route>
-         <Route element={<CollectionView />} path='/:category/:type'></Route>
-         <Route element={<CollectionView/>} path='/:category/search/:keyword'/>
+         <Route element={<CollectionView />} path='/:category/:type/:pageNumber'></Route>
+         <Route element={<CollectionView/>} path='/:category/search/:keyword/:pageNumber'/>
          <Route element={<Detail/>} path='/:category/detail/:id'></Route>
          
       </Routes>
